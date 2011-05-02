@@ -1,8 +1,12 @@
 #!/bin/bash
 
-FIDDLEDIR=/tmp/
-FIDDLE=$FIDDLEDIR`python -c "import random; print hex(int(str(random.random())[2:10]))[2:]"`
+if [ "$FIDDLEDIR" == "" ]; then
+    FIDDLEDIR=/tmp
+fi
+FIDDLE=$FIDDLEDIR/`python -c "import random; print hex(int(str(random.random())[2:10]))[2:]"`
 VIM=mvim
+
+echo Creating fiddle to $FIDDLE
 
 (set -e;
     mkdir $FIDDLE;
