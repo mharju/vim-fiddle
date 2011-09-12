@@ -12,12 +12,17 @@ fi
 
 VIM=mvim
 
+function run_fiddle {
+  $VIM -S fiddle.vim
+  python server.py $FIDDLEHOST
+}
+
 if [ -e $FIDDLE ]; then
     echo "Fiddle already exists, running it..."
     (set -e;
       cd $FIDDLE;
-      $VIM -S fiddle.vim
-      python server.py)
+      run_fiddle
+    )
 else
     echo Creating fiddle to $FIDDLE
 
@@ -27,8 +32,7 @@ else
         cd $FIDDLE;
         haml index.haml index.html;
         sass main.scss main.css;
-
-        $VIM -S fiddle.vim;
-        python server.py
+    
+        run_fiddle
     )
 fi
