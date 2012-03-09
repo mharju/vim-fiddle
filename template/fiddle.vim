@@ -9,7 +9,7 @@ endif
 set shortmess=aoO
 badd +0 main.scss
 badd +0 index.haml
-badd +0 main.coffee
+badd +0 main.js
 silent! argdel *
 edit index.haml
 set splitbelow splitright
@@ -35,7 +35,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-edit main.coffee
+edit main.js
 let s:l = 1 - ((0 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
