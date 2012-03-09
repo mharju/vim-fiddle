@@ -66,5 +66,5 @@ let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 unlet SessionLoad
 nmap <Leader>o :silent !open `cat /tmp/fiddle.addr`<cr>
-nmap <Leader>r :silent !haml index.haml index.html && sass main.scss main.css && osascript -e 'tell application "Firefox" to activate' -e 'tell application "System Events" to keystroke "r" using command down'<cr>
+nmap <Leader>r :silent !haml index.haml index.html && sass main.scss main.css && osascript -e 'tell application "Google Chrome" to activate' -e 'tell application "System Events" to keystroke "r" using command down'<cr>
 " vim: set ft=vim :
