@@ -1,12 +1,16 @@
 if !exists("g:fiddle_browser")
     let g:fiddle_browser = "Google Chrome"
 endif
+function! CompileTemplates()
+    :silent !haml index.haml index.html && sass main.scss main.css
+endfunction
 function! OpenOrRefreshBrowser()
+    call CompileTemplates()
     if !exists("w:opened")
         let w:opened = 1 
         :silent !open `cat /tmp/fiddle.addr`
     else 
-        let s:command = "silent !haml index.haml index.html && sass main.scss main.css && osascript -e 'tell application \"" . g:fiddle_browser . "\" to activate' -e 'tell application \"System Events\" to keystroke \"r\" using command down'"
+        let s:command = "osascript -e 'tell application \"" . g:fiddle_browser . "\" to activate' -e 'tell application \"System Events\" to keystroke \"r\" using command down'"
         :exec(s:command)
     endif
 endfunction
