@@ -5,8 +5,8 @@ To use, just clone this repository and type::
 
 ./fiddle.sh
 
-The script creates a new fiddling directory, starts up MVIM and the WSGI-server. Use ``<Leader>o`` to compile and open
-the file in browser, and ``<Leader>r`` to compile and refresh Google Chrome.
+The script creates a new fiddling directory, starts up MVIM and the WSGI-server with Bottle Framework. Use ``<Leader>r`` to compile and open the file in browser or refresh it. Set ``g:fiddle_browser`` to the default browser you are having or leave it as is to
+use Google Chrome.
 
 Check out ``fiddle.sh`` for configuration options such as VIM executable name and the directory where to put the fiddles
 in. **Note:** if you use Rooter or a plugin that changes the current working directory, this script might not work.
@@ -22,7 +22,6 @@ Requirements
 * Python
 * HAML_
 * SASS_
-* Google chrome
 
 .. _HAML: http://haml-lang.com/
 .. _SASS: http://sass-lang.com/
