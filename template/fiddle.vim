@@ -10,7 +10,7 @@ function! OpenOrRefreshBrowser()
         let w:opened = 1 
         :silent !open `cat /tmp/fiddle.addr`
     else 
-        let s:command = "osascript -e 'tell application \"" . g:fiddle_browser . "\" to activate' -e 'tell application \"System Events\" to keystroke \"r\" using command down'"
+        let s:command = "silent !osascript -e 'tell application \"" . g:fiddle_browser . "\" to activate' -e 'tell application \"System Events\" to keystroke \"r\" using command down'"
         :exec(s:command)
     endif
 endfunction
