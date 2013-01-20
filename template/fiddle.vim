@@ -1,10 +1,16 @@
 if !exists("g:fiddle_browser")
     let g:fiddle_browser = "Google Chrome"
 endif
+if !exists("g:fiddle_auto_save")
+    let g:fiddle_auto_save = 1
+endif
 function! CompileTemplates()
     :silent !haml index.haml index.html && sass main.scss main.css
 endfunction
 function! OpenOrRefreshBrowser()
+    if g:fiddle_auto_save
+        :w
+    endif
     call CompileTemplates()
     if !exists("w:opened")
         let w:opened = 1 
